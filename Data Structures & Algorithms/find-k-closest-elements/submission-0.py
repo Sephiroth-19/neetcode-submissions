@@ -1,0 +1,14 @@
+class Solution:
+    def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+        list = []
+        left = 0
+        right = len(arr)-1
+        long = right - left + 1
+        while long > k:
+            if abs(arr[right]-x) >= abs(arr[left]-x):
+                right -= 1
+            else:
+                left += 1
+            long = right - left + 1    
+
+        return arr[left:right+1]
